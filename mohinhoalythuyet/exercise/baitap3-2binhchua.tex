@@ -81,14 +81,14 @@
                         \item Khai triển Taylor cho $f\left({Q_i, H_1, H_2}\right) = \dot{H_1} = \dfrac{1}{A_1} \left[{Q_i - C_{db}a_b\sqrt{2g(H_1 - H_2)}}\right]$, ta có:
                             \begin{align}
                                 \dot{H_1} = \Delta H_1 & = f\left({\overline{Q_i} + \Delta Q_i, \overline{H_1} + \Delta H_1, \overline{H_2} + \Delta H_2}\right) \\
-                                & \approx \underbrace{f\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)}_{0} + \left.\dfrac{\partial f}{\partial Q_i}\right|_{\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)} \Delta Q_i + \left.\dfrac{\partial f}{\partial H_1}\right|_{\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)} \Delta H_1\\
-                                & \approx \dfrac{1}{A_1} \left[{\Delta Q_i - \dfrac{2gC_{db}a_b}{2\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1}\right]\\
-                                & \approx \dfrac{1}{A_1} \left[{\Delta Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1}\right]
+                                & \approx \underbrace{f\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)}_{0} + \left.\dfrac{\partial f}{\partial Q_i}\right|_{\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)} \Delta Q_i + \left.\dfrac{\partial f}{\partial H_1}\right|_{\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)} \Delta H_1 + \left.\dfrac{\partial f}{\partial H_2}\right|_{\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)} \Delta H_2\\
+                                & \approx \dfrac{1}{A_1} \left[{\Delta Q_i - \dfrac{2gC_{db}a_b}{2\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 + \dfrac{2gC_{db}a_b}{2\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2}\right]\\
+                                & \approx \dfrac{1}{A_1} \left[{\Delta Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2}\right]
                             \end{align}
 
-                        \item Thay $\Delta Q_i = Q_i$ và $\Delta H_1 = H_1$, ta có:
+                        \item Thay $\Delta Q_i = Q_i, \Delta H_1 = H_1$ và $\Delta H_2 = H_2$, ta có:
                             \begin{align}
-                                \dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left[{Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1}\right]
+                                \dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left[{Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2}\right]
                             \end{align}
                     \end{itemize}
 
@@ -96,7 +96,7 @@
                     \begin{itemize}
                         \item Tại điểm làm việc cân bằng $\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)$ thì:
                             \begin{align}
-                                g\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right) = 0 \Longleftrightarrow \dfrac{1}{A_2} \left[{C_{db}a_b\sqrt{2g(\overline{H_1} - \overline{H_2})} - C_{dc}a_c\sqrt{2g \overline{H2}}}\right] = 0
+                                g\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right) = 0 \Longleftrightarrow \dfrac{1}{A_2} \left[{C_{db}a_b\sqrt{2g(\overline{H_1} - \overline{H_2})} - C_{dc}a_c\sqrt{2g \overline{H_2}}}\right] = 0
                             \end{align}
 
                         \item Khai triển Taylor cho $g\left({Q_i, H_1, H_2}\right) = \dot{H_2} = \dfrac{1}{A_2} \left[{C_{db}a_b\sqrt{2g(H_1 - H_2)} - C_{dc}a_c\sqrt{2gH_2}}\right]$, ta có:
@@ -117,7 +117,7 @@
                     \begin{align}
                         \left\{
                         \begin{array}{l}
-                            \dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left[{Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1}\right]\\ [.5cm]
+                            \dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left[{Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2}\right]\\ [.5cm]
                             \dfrac{dH_2}{dt} = \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1 - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2 - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} H_2}\right]
                         \end{array}
                         \right.
@@ -126,22 +126,29 @@
 
         \item \textit{Xác định hàm truyền $G(s) = \dfrac{H_2(s)}{Q_i(s)}$}
             \begin{itemize}
-                \item Ta có: $\dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left[{Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1}\right]$, thực hiện biến đổi Laplace 2 vế của phương trình ta có:
+                \item Ta có: $\dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left[{Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2}\right]$, thực hiện biến đổi Laplace 2 vế của phương trình ta có:
                     \begin{align}
-                        & s H_1(s) = \dfrac{1}{A_1} \left[{Q_i(s) - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s)}\right]\\
-                        \Longleftrightarrow & s A_1 H_1(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s) = Q_i(s)\\
-                        \Longleftrightarrow & \left[{s A_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}\right] H_1(s) = Q_i(s) \\
-                        \Longleftrightarrow & H_1(s) = \frac{Q_i(s)}{s A_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}
+                        & s H_1(s) = \dfrac{1}{A_1} \left[{Q_i(s) - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s)}\right]\\
+                        \Longleftrightarrow & s A_1 H_1(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s) = Q_i(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s)\\
+                        \Longleftrightarrow & \left[{s A_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}\right] H_1(s) = Q_i(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s) \\
+                        \Longleftrightarrow & H_1(s) = \dfrac{Q_i(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s)}{s A_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}
                     \end{align}
 
                 \item Ta có: $\dfrac{dH_2}{dt} = \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1 - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2 - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} H_2}\right]$, thực hiện biến đổi Laplace 2 vế của phương trình ta có:
                     \begin{align}
                         & s H_2(s) = \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s) - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s) - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} H_2(s)}\right] \\
                         \Longleftrightarrow & s A_2 H_2(s) + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s) + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} H_2(s) = \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s) \\
-                        \Longleftrightarrow & \left[{s A_2 + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}}}\right] H_2(s) = \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s)\\
-                        \Longleftrightarrow & \left[{s A_2 + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}}}\right] H_2(s) = \dfrac{g C_{db}a_b Q_i(s)}{\sqrt{2g(\overline{H_1} - \overline{H_2})} \left[{s A_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}\right]} \\
-                        \Longleftrightarrow & \left[{s A_2 + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}}}\right] H_2(s) = \dfrac{g C_{db}a_b Q_i(s)}{s A_1 \sqrt{2g(\overline{H_1} - \overline{H_2})} + gC_{db}a_b} \\
-                        \Longleftrightarrow & \dfrac{H_2(s)}{Q_i(s)} = \dfrac{g C_{db}a_b}{\left[{s A_2 + \dfrac{g C_{db}a_b}{ \sqrt{2g(\overline{H_1} - \overline{H_2})}} + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}}}\right] \left[{s A_1 \sqrt{2g(\overline{H_1} - \overline{H_2})} + gC_{db}a_b}\right]}
+                        \Longleftrightarrow & \left[{s A_2 + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}}}\right] H_2(s) = \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s) \\
+                        \Longleftrightarrow & \dfrac{\sqrt{2g(\overline{H_1} - \overline{H_2})}}{g C_{db}a_b} \left[{s A_2 + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}}}\right] H_2(s) = H_1(s) \\
+                        \Longleftrightarrow & \dfrac{\sqrt{2g(\overline{H_1} - \overline{H_2})}}{g C_{db}a_b} \left[{s A_2 + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}}}\right] H_2(s) = \dfrac{Q_i(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s)}{s A_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}} \\
+                        \Longleftrightarrow & \dfrac{\sqrt{2g(\overline{H_1} - \overline{H_2})}}{g C_{db}a_b} \left[{s A_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}\right] \left[{s A_2 + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}}}\right] H_2(s) \nonumber \\
+                        & = Q_i(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s) \\
+                        \Longleftrightarrow & \dfrac{\sqrt{2g(\overline{H_1} - \overline{H_2})}}{g C_{db}a_b} \left[{s A_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}\right] \left[{s A_2 + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}}}\right] H_2(s) \nonumber \\
+                        & - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s) = Q_i(s) \\
+                        \Longleftrightarrow & \left\{{\dfrac{\sqrt{2g(\overline{H_1} - \overline{H_2})}}{g C_{db}a_b} \left[{s A_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}\right] \left[{s A_2 + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}}}\right]}\right. \nonumber \\
+                        & \left.{- \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}\right\} H_2(s) = Q_i(s) \\
+                        \Longleftrightarrow & \dfrac{H_2(s)}{Q_i(s)} = \nonumber \\
+                        & \dfrac{1}{\dfrac{\sqrt{2g(\overline{H_1} - \overline{H_2})}}{g C_{db}a_b} \left[{s A_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}\right] \left[{s A_2 + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}}}\right] - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}
                     \end{align}
 
                 \item Kết luận:
