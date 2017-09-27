@@ -1,0 +1,94 @@
+\paragraph{Giả thiết}
+    Cho hệ thống như hình \ref{baitap1-1binhchua}: Biết lưu lượng ra $F_2$ tỉ lệ với chiều cao chất lỏng theo công thức $F_2 = R.h^{\sfrac{3}{2}}$ với $R$ là hằng số. Tiết diện của bồn chứa là $A$.
+    \begin{figure}[htp]
+        \begin{center}
+            \subimport{images/}{baitap1-1binhchua.tex}
+        \end{center}
+        \caption{Hệ thống 1 bình chứa} \label{baitap1-1binhchua}
+    \end{figure}
+
+\paragraph{Yêu cầu}
+    \begin{enumerate}[a.]
+        \item Xác định các biến vào, biến ra, biến điều khiển, biến cần điều khiển và biến nhiễu.
+        \item Viết phương trình động học cho mức chất lỏng trong bồn chứa.
+        \item Tuyến tính hóa phương trình xây dựng được xung quanh vị trí cân bằng dựa trên phương pháp khai triển Taylor.
+        \item Xác định hàm truyền $G(s) = \dfrac{H_2(s)}{Q_i(s)}$
+    \end{enumerate}
+
+\paragraph{Bài giải}
+    \begin{enumerate}[\it a.]
+        \item \textit{Xác định các biến vào, biến ra, biến điều khiển, biến cần điều khiển và biến nhiễu.}
+            \begin{itemize}
+                \item Biến vào: $F_1, F_2$.
+                \item Biến ra: $h$.
+                \item Biến điều khiển: $F_1$ hoặc $F_2$.
+                \item Biến cần điều khiển: $h$.
+                \item Biến nhiễu: $F_2$ hoặc $F_1$.
+            \end{itemize}
+
+        \item \textit{Viết phương trình động học cho mức chất lỏng trong bồn chứa.}
+            \begin{itemize}
+                \item Phương trình cân bằng vật chất:
+                    \begin{align} \label{eq:baitap1-1binhchua}
+                        \frac{dV}{dt} = F_1 - F_2 \Longleftrightarrow \dfrac{d\left({Ah}\right)}{dt} = F_1 - F_2 \Longleftrightarrow \dfrac{dh}{dt} = \dfrac{1}{A} \left({F_1 - F_2}\right)
+                    \end{align}
+
+                \item Thay $F_2 = R.h^{\sfrac{3}{2}}$ vào (\ref{eq:baitap1-1binhchua}), ta có:
+                    \begin{align}
+                        \dfrac{dh}{dt} = \dfrac{1}{A} \left({F_1 - F_2}\right) = \dfrac{1}{A} \left({F_1 - R.h^{\sfrac{3}{2}}}\right)
+                    \end{align}
+
+                \item Kết luận, phương trình mô tả quá trình:
+                    \begin{align}
+                        \dfrac{dh}{dt} = \dfrac{1}{A} \left({F_1 - R.h^{\sfrac{3}{2}}}\right)
+                    \end{align}
+            \end{itemize}
+
+        \item \textit{Tuyến tính hóa phương trình xây dựng được xung quanh vị trí cân bằng dựa trên phương pháp khai triển Taylor.}
+            \begin{itemize}
+                \item Gọi $\left({\overline{F_1}, \overline{h}}\right)$ là điểm làm việc cân bằng của hệ thống.
+
+                \item Gọi $F_1 = \overline{F_1} + \Delta F_1, h = \overline{h} + \Delta h$.
+
+                \item Đặt $f\left({F_1, h}\right) = \dot{h} = \dfrac{1}{A} \left({F_1 - R.h^{\sfrac{3}{2}}}\right)$
+                    \begin{itemize}
+                        \item Tại điểm làm việc cân bằng $\left({\overline{F_1}, \overline{h}}\right)$ thì
+                            \begin{align}
+                                f\left({\overline{F_1}, \overline{h}}\right) = 0 \Longleftrightarrow \dfrac{1}{A} \left({\overline{F_1} - R.\overline{h}^{\sfrac{3}{2}}}\right) = 0
+                            \end{align}
+
+                        \item Khai triển Taylor cho $f \left({F_1, h}\right) = \dot{h} = \dfrac{1}{A} \left({F_1 - R.h^{\sfrac{3}{2}}}\right)$, ta có:
+                            \begin{align}
+                                \dot{h} = \Delta h & = f\left({\overline{F_1} + \Delta F_1, \overline{h} + \Delta h}\right) \\
+                                & \approx \underbrace{f \left({\overline{F_1}, \overline{h}}\right)}_{0} + \left.\dfrac{\partial f}{\partial F_1}\right|_{\left({\overline{F_1}, \overline{h}}\right)} \Delta F_1 + \left.\dfrac{\partial f}{\partial h}\right|_{\left({\overline{F_1}, \overline{h}}\right)} \Delta h\\
+                                & \approx \dfrac{1}{A} \left({\Delta F_1 - \dfrac{3}{2} R \overline{h}^{\sfrac{1}{2}} \Delta h}\right)
+                            \end{align}
+
+                        \item Thay $\Delta F_1 = F_1$ và $\Delta h = h$, ta có:
+                            \begin{align}
+                                \dfrac{dh}{dt} = \dfrac{1}{A} \left({F_1 - \dfrac{3}{2} R \overline{h}^{\sfrac{1}{2}} h}\right)
+                            \end{align}
+                    \end{itemize}
+
+                \item Kết luận, phương trình tuyến tính hóa của mô hình tại điểm làm việc cân bằng $\left({\overline{F_1}, \overline{h}}\right)$:
+                    \begin{align}
+                        \dfrac{dh}{dt} = \dfrac{1}{A} \left({F_1 - \dfrac{3}{2} R \overline{h}^{\sfrac{1}{2}}h}\right)
+                    \end{align}
+            \end{itemize}
+
+        \item \textit{Xác định hàm truyền $G(s) = \dfrac{H_2(s)}{Q_i(s)}$}
+            \begin{itemize}
+                \item Ta có: $\dfrac{dh}{dt} = \dfrac{1}{A} \left({F_1 - \dfrac{3}{2} R \overline{h}^{\sfrac{1}{2}} h}\right)$, thực hiện biến đổi Laplace 2 vế của phương trình ta có:
+                    \begin{align}
+                        & s H(s) = \dfrac{1}{A} \left[{F_1(s) - \dfrac{3}{2} R \overline{h}^{\sfrac{1}{2}} H(s)}\right]\\
+                        \Longleftrightarrow & s A H(s) + \dfrac{3}{2} R \overline{h}^{\sfrac{1}{2}} H(s) = F_1(s)\\
+                        \Longleftrightarrow & \left({s A + \dfrac{3}{2} R \overline{h}^{\sfrac{1}{2}}}\right) H(s) = F_1(s) \\
+                        \Longleftrightarrow & \dfrac{H(s)}{F_1(s)} = \frac{1}{s A + \dfrac{3}{2} R \overline{h}^{\sfrac{1}{2}}}
+                    \end{align}
+
+                \item Kết luận:
+                    \begin{align}
+                        G(s) = \dfrac{H(s)}{F_1(s)} = \frac{1}{s A + \dfrac{3}{2} R \overline{h}^{\sfrac{1}{2}}}
+                    \end{align}
+            \end{itemize}
+    \end{enumerate}

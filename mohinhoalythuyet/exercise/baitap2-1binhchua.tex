@@ -1,0 +1,107 @@
+\paragraph{Giả thiết}
+    Cho hệ thống như hình \ref{baitap2-1binhchua}: Trong đó $w_1$ là dòng lưu lượng vào $[m^3/s]$, $w_2$ là dòng lưu lượng ra $[m^3/s]$ và $h$ là chiều cao của mức chất lỏng $[m]$. Biết lưu lượng ra $w_2$ tỉ lệ với căn bậc hai của chiều cao mực chất lỏng bởi hằng số $C_v$. Diện tích mặt cắt ngang của bồn chứa là $A = 2[m^2]$. Khối lượng riêng của chất lỏng là $\rho = 500[kg/m^3]$.
+    \begin{figure}[htp]
+        \begin{center}
+            \subimport{images/}{baitap2-1binhchua.tex}
+        \end{center}
+        \caption{Hệ thống 1 bình chứa} \label{baitap2-1binhchua}
+    \end{figure}
+
+\paragraph{Yêu cầu}
+    \begin{enumerate}[a.]
+        \item Xác định các biến vào, biến ra, biến điều khiển, biến cần điều khiển và biến nhiễu.
+        \item Viết phương trình động học cho mức chất lỏng trong bồn chứa.
+        \item Viết phương trình động học ở trạng thái ổn định mức. Biết trạng thái ổn định: $w_1 = 2,4~m^3/s$ và $h = 1,44~m$. Tìm $C_v$.
+        \item Tuyến tính hóa phương trình xây dựng được xung quanh vị trí cân bằng dựa trên phương pháp khai triển Taylor.
+        \item Xác định hàm truyền $G(s) = \dfrac{H_2(s)}{Q_i(s)}$
+    \end{enumerate}
+
+\paragraph{Bài giải}
+    \begin{enumerate}[\it a.]
+        \item \textit{Xác định các biến vào, biến ra, biến điều khiển, biến cần điều khiển và biến nhiễu.}
+            \begin{itemize}
+                \item Biến vào: $w_1, w_2$.
+                \item Biến ra: $h$.
+                \item Biến điều khiển: $w_1$.
+                \item Biến cần điều khiển: $h$.
+                \item Biến nhiễu: $w_2$.
+            \end{itemize}
+
+        \item \textit{Viết phương trình động học cho mức chất lỏng trong bồn chứa.}
+            \begin{itemize}
+                \item Phương trình cân bằng vật chất:
+                    \begin{align} \label{eq:baitap2-1binhchua}
+                        \frac{dV}{dt} = w_1 - w_2 \Longleftrightarrow \dfrac{d\left({Ah}\right)}{dt} = w_1 - w_2 \Longleftrightarrow \dfrac{dh}{dt} = \dfrac{1}{A} \left({w_1 - w_2}\right)
+                    \end{align}
+
+                \item Thay $w_2 = C_v\sqrt{h}$ vào (\ref{eq:baitap2-1binhchua}), ta có:
+                    \begin{align}
+                        \dfrac{dh}{dt} = \dfrac{1}{A} \left({w_1 - w_2}\right) = \dfrac{1}{A} \left({w_1 - C_v\sqrt{h}}\right)
+                    \end{align}
+
+                \item Kết luận, phương trình mô tả quá trình:
+                    \begin{align}
+                        \dfrac{dh}{dt} = \dfrac{1}{A} \left({w_1 - C_v\sqrt{h}}\right)
+                    \end{align}
+            \end{itemize}
+
+        \item \textit{Viết phương trình động học ở trạng thái ổn định mức. Biết trạng thái ổn định: $w_1 = 2,4~m^3/s$ và $h = 1,44~m$. Tìm $C_v$.}
+            \begin{itemize}
+                \item Gọi $\left({\overline{w_1}, \overline{h}}\right)$ là điểm làm việc cân bằng của hệ thống.
+
+                \item Đặt $f\left({w_1, h}\right) = \dot{h} = \dfrac{1}{A} \left({w_1 - C_v\sqrt{h}}\right)$
+
+                \item Tại điểm làm việc cân bằng $\left({\overline{w_1}, \overline{h}}\right)$ thì
+                    \begin{align}
+                        f\left({\overline{w_1}, \overline{h}}\right) = 0 \Longleftrightarrow \dfrac{1}{A} \left({\overline{w_1} - C_v\sqrt{\overline{h}}}\right) = 0
+                    \end{align}
+
+                \item Kết luận, phương trình động học ở trạng thái ổn định mức:
+                    \begin{align} \label{eq:baitap2-1binhchua-2}
+                        \dfrac{1}{A} \left({\overline{w_1} - C_v\sqrt{\overline{h}}}\right) = 0
+                    \end{align}
+
+                \item Thông số ở trạng thái ổn định: $\overline{w_1} = 2,4~m^3/s$ và $\overline{h} = 1,44~m$, nên thay vào phương trình (\ref{eq:baitap2-1binhchua-2}), ta có:
+                    \begin{align}
+                        \dfrac{1}{A} \left({\overline{w_1} - C_v\sqrt{\overline{h}}}\right) = 0 \Longleftrightarrow \dfrac{1}{2} \left({2,4 - C_v\sqrt{1,44}}\right) = 0 \Longleftrightarrow C_v = 2[m^2/s]
+                    \end{align}
+            \end{itemize}
+
+        \item \textit{Tuyến tính hóa mô hình tại điểm làm việc cân bằng.}
+            \begin{itemize}
+                \item Gọi $w_1 = \overline{w_1} + \Delta w_1, h = \overline{h} + \Delta h$.
+
+                \item Khai triển Taylor cho $f \left({w_1, h}\right) = \dot{h} = \dfrac{1}{A} \left({w_1 - C_v\sqrt{h}}\right)$, ta có:
+                    \begin{align}
+                        \dot{h} = \Delta h & = f\left({\overline{w_1} + \Delta w_1, \overline{h} + \Delta h}\right) \\
+                        & \approx \underbrace{f \left({\overline{w_1}, \overline{h}}\right)}_{0} + \left.\dfrac{\partial f}{\partial w_1}\right|_{\left({\overline{w_1}, \overline{h}}\right)} \Delta w_1 + \left.\dfrac{\partial f}{\partial h}\right|_{\left({\overline{w_1}, \overline{h}}\right)} \Delta h\\
+                        & \approx \dfrac{1}{A} \left({\Delta w_1 - \dfrac{C_v}{2 \sqrt{\overline{h}}} \Delta h}\right)
+                    \end{align}
+
+                \item Thay $\Delta w_1 = w_1$ và $\Delta h = h$, ta có:
+                    \begin{align}
+                        \dfrac{dh}{dt} = \dfrac{1}{A} \left({w_1 - \dfrac{C_v}{2 \sqrt{\overline{h}}} h}\right)
+                    \end{align}
+
+                \item Kết luận, phương trình tuyến tính hóa của mô hình tại điểm làm việc cân bằng $\left({\overline{w_1}, \overline{h}}\right)$:
+                    \begin{align}
+                        \dfrac{dh}{dt} = \dfrac{1}{A} \left({w_1 - \dfrac{C_v}{2 \sqrt{\overline{h}}} h}\right)
+                    \end{align}
+            \end{itemize}
+
+        \item \textit{Xác định hàm truyền $G(s) = \dfrac{H_2(s)}{W_1(s)}$}
+            \begin{itemize}
+                \item Ta có: $\dfrac{dh}{dt} = \dfrac{1}{A} \left({w_1 - \dfrac{C_v}{2 \sqrt{\overline{h}}} h}\right)$, thực hiện biến đổi Laplace 2 vế của phương trình ta có:
+                    \begin{align}
+                        & s H(s) = \dfrac{1}{A} \left[{W_1(s) - \dfrac{C_v}{2 \sqrt{\overline{h}}} H(s)}\right]\\
+                        \Longleftrightarrow & s A H(s) + \dfrac{C_v}{2 \sqrt{\overline{h}}} H(s) = W_1(s)\\
+                        \Longleftrightarrow & \left({s A + \dfrac{C_v}{2 \sqrt{\overline{h}}}}\right) H(s) = W_1(s) \\
+                        \Longleftrightarrow & \dfrac{H(s)}{W_1(s)} = \frac{1}{s A + \dfrac{C_v}{2 \sqrt{\overline{h}}}}
+                    \end{align}
+
+                \item Kết luận:
+                    \begin{align}
+                        G(s) = \dfrac{H(s)}{W_1(s)} = \frac{1}{s A + \dfrac{C_v}{2 \sqrt{\overline{h}}}}
+                    \end{align}
+            \end{itemize}
+    \end{enumerate}
