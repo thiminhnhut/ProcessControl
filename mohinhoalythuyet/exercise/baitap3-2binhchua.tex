@@ -86,9 +86,9 @@
                                 & \approx \dfrac{1}{A_1} \left[{\Delta Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2}\right]
                             \end{align}
 
-                        \item Thay $\Delta Q_i = Q_i, \Delta H_1 = H_1$ và $\Delta H_2 = H_2$, ta có:
+                        \item Kết luận:
                             \begin{align}
-                                \dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left[{Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2}\right]
+                                \Delta \dot{H_1} = \dfrac{1}{A_1} \left[{\Delta Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2}\right]
                             \end{align}
                     \end{itemize}
 
@@ -107,9 +107,9 @@
                                 & \approx \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2 - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} \Delta H_2}\right]
                             \end{align}
 
-                        \item Thay $\Delta H_1= H_1$ và $\Delta H_2 = H_2$, ta có:
+                        \item Kết luận:
                             \begin{align}
-                                \dfrac{dH_2}{dt} = \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1 - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2 - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} H_2}\right]
+                                \Delta \dot{H_2} = \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2 - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} \Delta H_2}\right]
                             \end{align}
                     \end{itemize}
 
@@ -117,8 +117,8 @@
                     \begin{align}
                         \left\{
                         \begin{array}{l}
-                            \dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left[{Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2}\right]\\ [.5cm]
-                            \dfrac{dH_2}{dt} = \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1 - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2 - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} H_2}\right]
+                            \Delta \dot{H_1} = \dfrac{1}{A_1} \left[{\Delta Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2}\right]\\ [.5cm]
+                            \Delta \dot{H_2} = \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2 - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} \Delta H_2}\right]
                         \end{array}
                         \right.
                     \end{align}
@@ -126,7 +126,7 @@
 
         \item \textit{Xác định hàm truyền $G(s) = \dfrac{H_2(s)}{Q_i(s)}$}
             \begin{itemize}
-                \item Ta có: $\dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left[{Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2}\right]$, thực hiện biến đổi Laplace 2 vế của phương trình ta có:
+                \item Ta có: $\Delta \dot{H_1} = \dfrac{1}{A_1} \left[{\Delta Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2}\right]$, thực hiện biến đổi Laplace 2 vế của phương trình ta có:
                     \begin{align}
                         & s H_1(s) = \dfrac{1}{A_1} \left[{Q_i(s) - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s)}\right]\\
                         \Longleftrightarrow & s A_1 H_1(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s) = Q_i(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s)\\
@@ -134,7 +134,7 @@
                         \Longleftrightarrow & H_1(s) = \dfrac{Q_i(s) + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s)}{s A_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}}}
                     \end{align}
 
-                \item Ta có: $\dfrac{dH_2}{dt} = \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1 - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2 - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} H_2}\right]$, thực hiện biến đổi Laplace 2 vế của phương trình ta có:
+                \item Ta có: $\Delta \dot{H_2} = \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2 - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} \Delta H_2}\right]$, thực hiện biến đổi Laplace 2 vế của phương trình ta có:
                     \begin{align}
                         & s H_2(s) = \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s) - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s) - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} H_2(s)}\right] \\
                         \Longleftrightarrow & s A_2 H_2(s) + \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_2(s) + \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} H_2(s) = \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} H_1(s) \\
