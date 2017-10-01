@@ -80,7 +80,7 @@
 
                         \item Khai triển Taylor cho $f\left({Q_i, H_1, H_2}\right) = \dot{H_1} = \dfrac{1}{A_1} \left[{Q_i - C_{db}a_b\sqrt{2g(H_1 - H_2)}}\right]$, ta có:
                             \begin{align}
-                                \dot{H_1} = \Delta H_1 & = f\left({\overline{Q_i} + \Delta Q_i, \overline{H_1} + \Delta H_1, \overline{H_2} + \Delta H_2}\right) \\
+                                \dot{H_1} = \Delta \dot{H_1} & = f\left({\overline{Q_i} + \Delta Q_i, \overline{H_1} + \Delta H_1, \overline{H_2} + \Delta H_2}\right) \\
                                 & \approx \underbrace{f\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)}_{0} + \left.\dfrac{\partial f}{\partial Q_i}\right|_{\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)} \Delta Q_i + \left.\dfrac{\partial f}{\partial H_1}\right|_{\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)} \Delta H_1 + \left.\dfrac{\partial f}{\partial H_2}\right|_{\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)} \Delta H_2\\
                                 & \approx \dfrac{1}{A_1} \left[{\Delta Q_i - \dfrac{2gC_{db}a_b}{2\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 + \dfrac{2gC_{db}a_b}{2\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2}\right]\\
                                 & \approx \dfrac{1}{A_1} \left[{\Delta Q_i - \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 + \dfrac{gC_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2}\right]
@@ -101,7 +101,7 @@
 
                         \item Khai triển Taylor cho $g\left({Q_i, H_1, H_2}\right) = \dot{H_2} = \dfrac{1}{A_2} \left[{C_{db}a_b\sqrt{2g(H_1 - H_2)} - C_{dc}a_c\sqrt{2gH_2}}\right]$, ta có:
                             \begin{align}
-                                \dot{H_2} = \Delta H_2 & = g\left({\overline{Q_i} + \Delta Q_i, \overline{H_1} + \Delta H_1, \overline{H_2} + \Delta H_2}\right) \\
+                                \dot{H_2} = \Delta \dot{H_2} & = g\left({\overline{Q_i} + \Delta Q_i, \overline{H_1} + \Delta H_1, \overline{H_2} + \Delta H_2}\right) \\
                                 & \approx \underbrace{g\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)}_{0} + \left.\dfrac{\partial g}{\partial H_1}\right|_{\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)} \Delta H_1 + \left.\dfrac{\partial g}{\partial H_2}\right|_{\left({\overline{Q_i}, \overline{H_1}, \overline{H_2}}\right)} \Delta H_2\\
                                 & \approx \dfrac{1}{A_2} \left[{\dfrac{2g C_{db}a_b}{2 \sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 + \dfrac{-2g C_{db}a_b}{2 \sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2 - \dfrac{2g C_{dc}a_c}{2 \sqrt{2g\overline{H_2}}} \Delta H_2}\right]\\
                                 & \approx \dfrac{1}{A_2} \left[{\dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_1 - \dfrac{g C_{db}a_b}{\sqrt{2g(\overline{H_1} - \overline{H_2})}} \Delta H_2 - \dfrac{g C_{dc}a_c}{\sqrt{2g\overline{H_2}}} \Delta H_2}\right]
