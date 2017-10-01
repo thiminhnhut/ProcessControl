@@ -85,64 +85,6 @@
                     \end{align}
 
                 \item Do hệ phương trình (\ref{eq:baitap4-2binhchua-4}) đã tuyến tính rồi nên ta không cần phải tuyến tính hóa.
-
-                \item Nếu ta đi tuyến tính hóa hệ phương trình (\ref{eq:baitap4-2binhchua-4}) thì cho kết quả không thay đổi.
-                    \begin{itemize}
-                        \item Gọi $\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right)$ là điểm làm việc cân bằng của hệ thống gồm 2 bình chứa.
-
-                        \item Gọi $q_{in} = \overline{q_{in}} + \Delta q_{in}, h_1 = \overline{h_1} + \Delta h_1, h_2 = \overline{h_2} + \Delta h_2$.
-
-                        \item Đặt $f\left({q_{in}, h_1, h_2}\right) = \dot{h_1} = \dfrac{1}{A_1} \left({q_{in} - \dfrac{h_1 - h_2}{R_1}}\right)$
-                            \begin{itemize}
-                                \item Tại điểm làm việc cân bằng $\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right)$ thì
-                                    \begin{align}
-                                        f\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right) = 0 \Longleftrightarrow \dfrac{1}{A_1} \left({\overline{q_{in}} - \dfrac{\overline{h_1} - \overline{h_2}}{R_1}}\right) = 0
-                                    \end{align}
-
-                                \item Khai triển Taylor cho $f\left({q_{in}, h_1, h_2}\right) = \dot{h_1} = \dfrac{1}{A_1} \left({q_{in} - \dfrac{h_1 - h_2}{R_1}}\right)$, ta có:
-                                    \begin{align}
-                                        \dot{h_1} = \Delta \dot{h_1} & = f\left({\overline{q_{in}} + \Delta q_{in}, \overline{h_1} + \Delta h_1, \overline{h_2} + \Delta h_2}\right) \\
-                                        & \approx \underbrace{f\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right)}_{0} + \left.\dfrac{\partial f}{\partial q_{in}}\right|_{\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right)} \Delta q_{in} + \left.\dfrac{\partial f}{\partial h_1}\right|_{\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right)} \Delta h_1 + \left.\dfrac{\partial f}{\partial h_2}\right|_{\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right)} \Delta h_2\\
-                                        & \approx \dfrac{1}{A_1} \left({\Delta q_{in} - \dfrac{\Delta h_1}{R_1} + \dfrac{\Delta h_2}{R_1}}\right)\\
-                                    \end{align}
-
-                                \item Kết luận:
-                                    \begin{align}
-                                        \Delta \dot{h_1} = \dfrac{1}{A_1} \left({\Delta q_{in} - \dfrac{\Delta h_1}{R_1} + \dfrac{\Delta h_2}{R_1}}\right)
-                                    \end{align}
-                            \end{itemize}
-
-                        \item Đặt $g\left({q_{in}, h_1, h_2}\right) = \dot{h_2} = \dfrac{1}{A_2} \left({\dfrac{h_1 - h_2}{R_1} - \dfrac{h_2}{R_2}}\right)$
-                            \begin{itemize}
-                                \item Tại điểm làm việc cân bằng $\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right)$ thì:
-                                    \begin{align}
-                                        g\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right) = 0 \Longleftrightarrow \dfrac{1}{A_2} \left({\dfrac{\overline{h_1} - \overline{h_2}}{R_1} - \dfrac{\overline{h_2}}{R_2}}\right) = 0
-                                    \end{align}
-
-                                \item Khai triển Taylor cho $g\left({q_{in}, h_1, h_2}\right) = \dot{h_2} = \dfrac{1}{A_2} \left({\dfrac{h_1 - h_2}{R_1} - \dfrac{h_2}{R_2}}\right)$, ta có:
-                                    \begin{align}
-                                        \dot{h_2} = \Delta \dot{h_2} & = g\left({\overline{q_{in}} + \Delta q_{in}, \overline{h_1} + \Delta h_1, \overline{h_2} + \Delta h_2}\right) \\
-                                        & \approx \underbrace{g\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right)}_{0} + \left.\dfrac{\partial g}{\partial h_1}\right|_{\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right)} \Delta h_1 + \left.\dfrac{\partial g}{\partial h_2}\right|_{\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right)} \Delta h_2\\
-                                        & \approx \dfrac{1}{A_2} \left({\dfrac{\Delta h_1}{R_1} - \dfrac{\Delta h_2}{R_1} - \dfrac{\Delta h_2}{R_2}}\right)\\
-                                        & \approx \dfrac{1}{A_2} \left[{\dfrac{\Delta h_1}{R_1} - \left({\dfrac{1}{R_1} + \dfrac{1}{R_2}}\right) \Delta h_2}\right]
-                                    \end{align}
-
-                                \item Kết luận:
-                                    \begin{align}
-                                        \Delta \dot{h_2} = \dfrac{1}{A_2} \left[{\dfrac{\Delta h_1}{R_1} - \left({\dfrac{1}{R_1} + \dfrac{1}{R_2}}\right) \Delta h_2}\right]
-                                    \end{align}
-                            \end{itemize}
-
-                        \item Kết luận, phương trình tuyến tính hóa của mô hình tại điểm làm việc cân bằng $\left({\overline{q_{in}}, \overline{h_1}, \overline{h_2}}\right)$:
-                            \begin{align}
-                                \left\{
-                                \begin{array}{l}
-                                    \Delta \dot{h_1} = \dfrac{1}{A_1} \left({\Delta q_{in} - \dfrac{\Delta h_1}{R_1} + \dfrac{\Delta h_2}{R_1}}\right)\\ [.5cm]
-                                    \Delta \dot{h_2} = \dfrac{1}{A_2} \left[{\dfrac{\Delta h_1}{R_1} - \left({\dfrac{1}{R_1} + \dfrac{1}{R_2}}\right) \Delta h_2}\right]
-                                \end{array}
-                                \right.
-                            \end{align}
-                \end{itemize}
             \end{itemize}
 
         \item \textit{Xác định hàm truyền $G(s) = \dfrac{h_2(s)}{Q_{in}(s)}$}
