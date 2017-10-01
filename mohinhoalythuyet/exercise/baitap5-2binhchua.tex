@@ -1,0 +1,158 @@
+\paragraph{Giả thiết}
+    Cho hệ thống như hình \ref{Fig:baitap5-2binhchua}: Bình chứa thứ nhất có tiết diện là $A_1$ và bình chứa thứ hai có tiết diện là $A_2$. Các lưu lượng ra $Q_{1out}$ và $Q_{2out}$ được xác định như sau: $Q_{1out} = k_1 \sqrt{H_1 - H_2}$ và $Q_{2out} = k_2 \sqrt{H_2}$.
+    \begin{figure}[htp]
+        \begin{center}
+            \includegraphics[scale=.5]{baitap5-2binhchua}
+        \end{center}
+        \caption{Hệ thống 2 bình chứa} \label{Fig:baitap5-2binhchua}
+    \end{figure}
+
+\paragraph{Yêu cầu}
+    \begin{enumerate}[a.]
+        \item Xác định các biến vào, biến ra, biến điều khiển, biến cần điều khiển và biến nhiễu.
+        \item Viết phương trình động học cho mức chất lỏng trong bồn chứa.
+        \item Tuyến tính hóa phương trình xây dựng được xung quanh vị trí cân bằng dựa trên phương pháp khai triển Taylor.
+        \item Xác định hàm truyền $G(s) = \dfrac{H_2(s)}{Q_{in}(s)}$
+    \end{enumerate}
+
+    \paragraph{Bài giải}
+        \begin{enumerate}[\it a.]
+            \item \textit{Xác định các biến vào, biến ra, biến điều khiển, biến cần điều khiển và biến nhiễu.}
+                \begin{itemize}
+                    \item Biến vào: $Q_{in}, Q_{1out}, Q_{2out}$.
+                    \item Biến ra: $H_1, H_2$.
+                    \item Biến điều khiển: $Q_{in}, Q_{1out}, Q_{2out}$.
+                    \item Biến cần điều khiển: $H_1, H_2$.
+                    \item Biến nhiễu: không có.
+                \end{itemize}
+
+            \item \textit{Viết phương trình động học cho mức chất lỏng trong bồn chứa.}
+                \begin{itemize}
+                    \item Phương trình cho bình chứa 1:
+                        \begin{itemize}
+                            \item Bình chứa 1:
+                                \begin{align} \label{eq:baitap5-2binhchua}
+                                    \frac{dV_1}{dt} = Q_{in} - Q_{1out} \Longleftrightarrow \dfrac{d\left({A_1 H_1}\right)}{dt} = Q_{in} - Q_{1out} \Longleftrightarrow \dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left({Q_{in} - Q_{1out}}\right)
+                                \end{align}
+
+                            \item Thay $Q_{1out} = k_1 \sqrt{H_1 - H_2}$ vào (\ref{eq:baitap5-2binhchua}), ta có:
+                                \begin{align}
+                                    \dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left({Q_{in} - Q_{1out}}\right) = \dfrac{1}{A_1} \left[{Q_{in} - k_1 \sqrt{H_1 - H_2}}\right]
+                                \end{align}
+                        \end{itemize}
+
+                    \item Phương trình cho bình chứa 2:
+                        \begin{itemize}
+                            \item Bình chứa 2:
+                                \begin{align} \label{eq:baitap5-2binhchua-2}
+                                    \dfrac{dV_2}{dt} = Q_{1out} - Q_{2out} \Longleftrightarrow \dfrac{d\left({A_2 H_2}\right)}{dt} = Q_{1out} - Q_{2out} \Longleftrightarrow \dfrac{dH_2}{dt} = \dfrac{1}{A_2} \left({Q_{1out} - Q_{2out}}\right)
+                                \end{align}
+
+                            \item Thay $Q_{1out} = k_1 \sqrt{H_1 - H_2}$ và $Q_{2out} = k_2 \sqrt{H_2}$ vào (\ref{eq:baitap5-2binhchua-2}), ta có:
+                                \begin{align}
+                                    \dfrac{dH_2}{dt} = \dfrac{1}{A_2} \left({Q_{1out} - Q_{2out}}\right) = \dfrac{1}{A_2} \left[{k_1 \sqrt{H_1 - H_2} - k_2 \sqrt{H_2}}\right]
+                                \end{align}
+                        \end{itemize}
+
+                    \item Kết luận, hệ phương trình mô tả quá trình:
+                        \begin{align}
+                            \left\{
+                            \begin{array}{l}
+                                \dfrac{dH_1}{dt} = \dfrac{1}{A_1} \left[{Q_{in} - k_1 \sqrt{H_1 - H_2}}\right]\\ [.5cm]
+                                \dfrac{dH_2}{dt} = \dfrac{1}{A_2} \left[{k_1 \sqrt{H_1 - H_2} - k_2 \sqrt{H_2}}\right]
+                            \end{array}
+                            \right.
+                        \end{align}
+                \end{itemize}
+
+            \item \textit{Tuyến tính hóa phương trình xây dựng được xung quanh vị trí cân bằng dựa trên phương pháp khai triển Taylor.}
+                \begin{itemize}
+                    \item Gọi $\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right)$ là điểm làm việc cân bằng của hệ thống gồm 2 bình chứa.
+
+                    \item Gọi $Q_{in} = \overline{Q_{in}} + \Delta Q_{in}, H_1 = \overline{H_1} + \Delta H_1, H_2 = \overline{H_2} + \Delta H_2$.
+
+                    \item Đặt $f\left({Q_{in}, H_1, H_2}\right) = \dot{H_1} = \dfrac{1}{A_1} \left[{Q_{in} - k_1 \sqrt{H_1 - H_2}}\right]$
+                        \begin{itemize}
+                            \item Tại điểm làm việc cân bằng $\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right)$ thì
+                                \begin{align}
+                                    f\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right) = 0 \Longleftrightarrow \dfrac{1}{A_1} \left[{\overline{Q_{in}} - k_1 \sqrt{\overline{H_1} - \overline{H_2}}}\right] = 0
+                                \end{align}
+
+                            \item Khai triển Taylor cho $f\left({Q_{in}, H_1, H_2}\right) = \dot{H_1} = \dfrac{1}{A_1} \left[{Q_{in} - k_1 \sqrt{H_1 - H_2}}\right]$, ta có:
+                                \begin{align}
+                                    \dot{H_1} = \Delta \dot{H_1} & = f\left({\overline{Q_{in}} + \Delta Q_{in}, \overline{H_1} + \Delta H_1, \overline{H_2} + \Delta H_2}\right) \\
+                                    & \approx \underbrace{f\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right)}_{0} + \left.\dfrac{\partial f}{\partial Q_{in}}\right|_{\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right)} \Delta Q_{in} + \left.\dfrac{\partial f}{\partial H_1}\right|_{\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right)} \Delta H_1 \nonumber\\
+                                    & + \left.\dfrac{\partial f}{\partial H_2}\right|_{\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right)} \Delta H_2\\
+                                    & \approx \dfrac{1}{A_1} \left[{\Delta Q_{in} - \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_1 + \dfrac{k_2}{2\sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_2}\right]
+                                \end{align}
+
+                            \item Kết luận:
+                                \begin{align}
+                                    \Delta \dot{H_1} = \dfrac{1}{A_1} \left[{\Delta Q_{in} - \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_1 + \dfrac{k_2}{2\sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_2}\right]
+                                \end{align}
+                        \end{itemize}
+
+                    \item Đặt $g\left({Q_{in}, H_1, H_2}\right) = \dot{H_2} = \dfrac{1}{A_2} \left[{k_1 \sqrt{H_1 - H_2} - k_2 \sqrt{H_2}}\right]$
+                        \begin{itemize}
+                            \item Tại điểm làm việc cân bằng $\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right)$ thì:
+                                \begin{align}
+                                    g\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right) = 0 \Longleftrightarrow \dfrac{1}{A_2} \left[{k_1\sqrt{\overline{H_1} - \overline{H_2}} - k_2 \sqrt{\overline{H_2}}}\right] = 0
+                                \end{align}
+
+                            \item Khai triển Taylor cho $g\left({Q_{in}, H_1, H_2}\right) = \dot{H_2} = \dfrac{1}{A_2} \left[{k_1 \sqrt{H_1 - H_2} - k_2 \sqrt{H_2}}\right]$, ta có:
+                                \begin{align}
+                                    \dot{H_2} = \Delta \dot{H_2} & = g\left({\overline{Q_{in}} + \Delta Q_{in}, \overline{H_1} + \Delta H_1, \overline{H_2} + \Delta H_2}\right) \\
+                                    & \approx \underbrace{g\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right)}_{0} + \left.\dfrac{\partial g}{\partial H_1}\right|_{\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right)} \Delta H_1 + \left.\dfrac{\partial g}{\partial H_2}\right|_{\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right)} \Delta H_2\\
+                                    & \approx \dfrac{1}{A_2} \left[{\dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_1 + \dfrac{-k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_2 - \dfrac{k_2}{2 \sqrt{\overline{H_2}}} \Delta H_2}\right]
+                                \end{align}
+
+                            \item Kết luận:
+                                \begin{align}
+                                    \Delta \dot{H_2} = \dfrac{1}{A_2} \left[{\dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_1 + \dfrac{-k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_2 - \dfrac{k_2}{2 \sqrt{\overline{H_2}}} \Delta H_2}\right]
+                                \end{align}
+                        \end{itemize}
+
+                    \item Kết luận, phương trình tuyến tính hóa của mô hình tại điểm làm việc cân bằng $\left({\overline{Q_{in}}, \overline{H_1}, \overline{H_2}}\right)$:
+                        \begin{align}
+                            \left\{
+                            \begin{array}{l}
+                                \Delta \dot{H_1} = \dfrac{1}{A_1} \left[{\Delta Q_{in} - \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_1 + \dfrac{k_2}{2\sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_2}\right]\\ [.5cm]
+                                \Delta \dot{H_2} = \dfrac{1}{A_2} \left[{\dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_1 + \dfrac{-k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_2 - \dfrac{k_2}{2 \sqrt{\overline{H_2}}} \Delta H_2}\right]
+                            \end{array}
+                            \right.
+                        \end{align}
+                \end{itemize}
+
+            \item \textit{Xác định hàm truyền $G(s) = \dfrac{H_2(s)}{Q_{in}(s)}$}
+                \begin{itemize}
+                    \item Ta có: $\Delta \dot{H_1} = \dfrac{1}{A_1} \left[{\Delta Q_{in} - \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_1 + \dfrac{k_2}{2\sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_2}\right]$, thực hiện biến đổi Laplace 2 vế của phương trình ta có:
+                        \begin{align}
+                            & s H_1(s) = \dfrac{1}{A_1} \left[{Q_{in}(s) - \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}} H_1(s) + \dfrac{k_2}{2\sqrt{\overline{H_1} - \overline{H_2}}} H_2(s)}\right]\\
+                            \Longleftrightarrow & s A_1 H_1(s) + \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}} H_1(s) = Q_{in}(s) + \dfrac{k_2}{2\sqrt{\overline{H_1} - \overline{H_2}}} H_2(s)\\
+                            \Longleftrightarrow & \left[{s A_1 + \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}}}\right] H_1(s) = Q_{in}(s) + \dfrac{k_2}{2\sqrt{\overline{H_1} - \overline{H_2}}} H_2(s) \\
+                            \Longleftrightarrow & H_1(s) = \dfrac{Q_{in}(s) + \dfrac{k_2}{2\sqrt{\overline{H_1} - \overline{H_2}}} H_2(s)}{s A_1 + \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}}}
+                        \end{align}
+
+                    \item Ta có: $\Delta \dot{H_2} = \dfrac{1}{A_2} \left[{\dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} H_1 + \dfrac{-k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} \Delta H_2 - \dfrac{k_2}{2 \sqrt{\overline{H_2}}} \Delta H_2}\right]$, thực hiện biến đổi Laplace 2 vế của phương trình ta có:
+                        \begin{align}
+                            & s H_2(s) = \dfrac{1}{A_2} \left[{\dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} H_1(s) + \dfrac{-k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} H_2(s) - \dfrac{k_2}{2 \sqrt{\overline{H_2}}} H_2(s)}\right] \\
+                            \Longleftrightarrow & s A_2 H_2(s) + \dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} H_2(s) + \dfrac{k_2}{2 \sqrt{\overline{H_2}}} H_2(s) = \dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} H_1(s) \\
+                            \Longleftrightarrow & \left[{s A_2 + \dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} + \dfrac{k_2}{2 \sqrt{\overline{H_2}}}}\right] H_2(s) = \dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} H_1(s) \\
+                            \Longleftrightarrow & \dfrac{2\sqrt{\overline{H_1} - \overline{H_2}}}{k_1} \left[{s A_2 + \dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} + \dfrac{k_2}{2 \sqrt{\overline{H_2}}}}\right] H_2(s) = H_1(s) \\
+                            \Longleftrightarrow & \dfrac{2\sqrt{\overline{H_1} - \overline{H_2}}}{k_1} \left[{s A_2 + \dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} + \dfrac{k_2}{2 \sqrt{\overline{H_2}}}}\right] H_2(s) = \dfrac{Q_{in}(s) + \dfrac{k_2}{2\sqrt{\overline{H_1} - \overline{H_2}}} H_2(s)}{s A_1 + \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}}} \\
+                            \Longleftrightarrow & \dfrac{2\sqrt{\overline{H_1} - \overline{H_2}}}{k_1} \left[{s A_1 + \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}}}\right] \left[{s A_2 + \dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} + \dfrac{k_2}{2 \sqrt{\overline{H_2}}}}\right] H_2(s) \nonumber \\
+                            & = Q_{in}(s) + \dfrac{k_2}{2 \sqrt{\overline{H_1} - \overline{H_2}}} H_2(s) \\
+                            \Longleftrightarrow & \dfrac{2\sqrt{\overline{H_1} - \overline{H_2}}}{k_1} \left[{s A_1 + \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}}}\right] \left[{s A_2 + \dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} + \dfrac{k_2}{2 \sqrt{\overline{H_2}}}}\right] H_2(s) \nonumber \\
+                            & - \dfrac{k_2}{\sqrt{\overline{H_1} - \overline{H_2}}} H_2(s) = Q_{in}(s) \\
+                            \Longleftrightarrow & \left\{{\dfrac{2\sqrt{\overline{H_1} - \overline{H_2}}}{k_1} \left[{s A_1 + \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}}}\right] \left[{s A_2 + \dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} + \dfrac{k_2}{2 \sqrt{\overline{H_2}}}}\right]}\right. \nonumber \\
+                            & \left.{- \dfrac{k_2}{\sqrt{\overline{H_1} - \overline{H_2}}}}\right\} H_2(s) = Q_{in}(s) \\
+                            \Longleftrightarrow & \dfrac{H_2(s)}{Q_{in}(s)} = \dfrac{1}{\dfrac{2\sqrt{\overline{H_1} - \overline{H_2}}}{k_1} \left[{s A_1 + \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}}}\right] \left[{s A_2 + \dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} + \dfrac{k_2}{2 \sqrt{\overline{H_2}}}}\right] - \dfrac{k_2}{\sqrt{\overline{H_1} - \overline{H_2}}}}
+                        \end{align}
+
+                    \item Kết luận:
+                        \begin{align}
+                            G(s) & = \dfrac{H_2(s)}{Q_{in}(s)} \nonumber\\
+                            & = \dfrac{1}{\dfrac{2\sqrt{\overline{H_1} - \overline{H_2}}}{k_1} \left[{s A_1 + \dfrac{k_1}{2\sqrt{\overline{H_1} - \overline{H_2}}}}\right] \left[{s A_2 + \dfrac{k_1}{2 \sqrt{\overline{H_1} - \overline{H_2}}} + \dfrac{k_2}{2 \sqrt{\overline{H_2}}}}\right] - \dfrac{k_2}{\sqrt{\overline{H_1} - \overline{H_2}}}}
+                        \end{align}
+                \end{itemize}
+        \end{enumerate}
