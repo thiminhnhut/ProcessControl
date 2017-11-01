@@ -1,0 +1,44 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage{booktabs}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{enumerate}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\graphicspath{{images/}}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+
+\everymath{\displaystyle}
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\baselinestretch}{1.2}
+
+\newcounter{exercise}[section]
+\newenvironment{exercise}[1][]
+    {\refstepcounter{exercise} \textbf{Bài tập~\thesection.\theexercise~}\rmfamily}{}
+
+\newcounter{solution}[section]
+\newenvironment{solution}[1][]
+        {\refstepcounter{solution} \textbf{Bài giải~\thesection.\theexercise~}\rmfamily\\\par}{}
+
+\title{\textbf{Bài tập Điều khiển quá trình \bigskip \\ Chủ đề Chỉnh định bộ điều khiển PID}}
+\author{Sưu tầm: Thi Minh Nhựt \and Email: thiminhnhut@gmail.com}
+\date{Thời gian: \today}
+
+\begin{document}
+
+    \maketitle
+
+    \tableofcontents
+
+    \include{section/cosolythuyet}
+
+    \include{section/baitap}
+
+\end{document}
