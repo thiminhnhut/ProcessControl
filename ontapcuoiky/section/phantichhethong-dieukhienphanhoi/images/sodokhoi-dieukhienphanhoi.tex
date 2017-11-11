@@ -1,0 +1,56 @@
+\documentclass[border=12pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{tikz}
+\usepackage{flowchart}
+\usetikzlibrary{arrows,decorations.markings,calc,fadings,decorations.pathreplacing,patterns,decorations.pathmorphing,positioning}
+
+\begin{document}
+    \begin{tikzpicture}[>=latex',font={\small}]
+        \def\smbwd{2cm}
+        \coordinate (r) at (-2.5, 0);
+
+        \node (P) at (0, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$C$};
+        \node (sum_1) at (2, 0) [circle, draw] {};
+        \coordinate (node_sum1) at (2, -2);
+        \node (K) at (4, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$K$};
+        \node (Gv) at (8, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\tilde{G_v}$};
+        \node (Gp) at (11, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$G_p$};
+        \node (sum_2) at (13, 0) [circle, draw] {};
+        \coordinate (y) at (15.5, 0);
+
+        \node (Gd) at (13, 2) [draw, process, minimum width=\smbwd, minimum height=1cm] {$G_d$};
+        \coordinate (d) at (13, 3.5);
+
+        \node (Gm) at (11, -2) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\tilde{G_m}$};
+        \node (sum_3) at (8, -2) [circle, draw] {};
+        \coordinate (node_sum_3) at (13.5, 0);
+        \coordinate (n) at (8, -3);
+
+        \draw[->] (r) -- node[above,pos=0.1]{$SP$} (P);
+        \draw[->] (P) -- node[above]{$\vec{r}$} (sum_1);
+        \draw[->] (sum_1) -- (K);
+        \draw[->] (K) -- node[above,pos=0.4]{$\vec{u}$} (Gv);
+        \draw[->] (Gv) -- node[above]{$MV$} (Gp);
+        \draw[->] (Gp) -- (sum_2);
+        \draw[->] (sum_2) -- node[above,pos=0.9]{$CV$} (y);
+
+        \draw[->] (d) node[right]{$d$} -- (Gd);
+        \draw[->] (Gd) -- node[right,pos=0.9]{$+$} (sum_2);
+
+        \draw[->] (node_sum_3) |- (Gm);
+        \draw[->] (Gm) -- node[above]{$\vec{y}$} (sum_3);
+        \draw[->] (n) node[right]{$\vec{n}$} -- node[right,pos=0.9]{$+$} (sum_3);
+
+        \draw[->] (sum_3) -- node[above,pos=0.95]{$\vec{y}_m$} (node_sum1) -- node[right,pos=0.9]{$-$} (sum_1);
+
+        \draw[dashed] (-1.5, 2) rectangle (5.5, -1);
+        \node at (2, 1.25) {Bộ điều khiển};
+
+        \draw[dashed] (6.25, 3) rectangle (14.5, -3.5);
+        \node at (8, 2.5) {Quá trình kỹ thuật};
+
+    \end{tikzpicture}
+
+\end{document}

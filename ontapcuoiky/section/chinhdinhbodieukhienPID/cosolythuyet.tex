@@ -1,0 +1,85 @@
+\subsection{Xấp xỉ mô hình bậc cao theo phương pháp Skogestad (luật chia đôi)}
+    Cho mô hình của đối tượng có dạng như sau:
+    \begin{align*}
+        G(s) = \dfrac{\displaystyle k \prod_{i=1}^m \left({-\tau_{zi} s + 1}\right)}{\displaystyle \prod_{j=1}^n \left({\tau_{pj} s + 1}\right)} e^{-\tau_0 s} \quad \textrm{ với } \tau_{p1} > \tau_{p2} > \tau_{p3} > \cdots
+    \end{align*}
+
+    \begin{itemize}
+        \item Xấp xỉ về khâu quán tính bậc nhất có trễ với mô hình: $\tilde{G}(s) = \dfrac{k e^{-\theta s}}{\tau s + 1}$, trong đó:
+            \begin{align*}
+                \tau & = \tau_{p1} + \dfrac{\tau_{p2}}{2}; &
+                \theta & = \tau_0 + \dfrac{\tau_{p2}}{2} + \sum_{j = 3}^n \tau_{pj} + \sum_{i = 1}^m \tau_{zi} \\
+                & & & = \tau_0 + \dfrac{\tau_{p2}}{2} + \left({\tau_{p3} + \tau_{p4} + \cdots + \tau_{pn}}\right) + \left({\tau_{z1} + \tau_{z2} + \cdots + \tau_{zm}}\right)
+            \end{align*}
+
+        \item Xấp xỉ về khâu quán tính bậc hai có trễ với mô hình: $\tilde{G}(s) = \dfrac{k e^{-\theta s}}{\left({\tau_1 s + 1}\right) \left({\tau_2 s + 1}\right)}$, trong đó:
+            \begin{align*}
+                \tau_1 & = \tau_{p1}; & \tau_2 & = \tau_{p2} + \dfrac{\tau_{p3}}{2}; &
+                \theta & = \tau_0 + \dfrac{\tau_{p3}}{2} + \sum_{j = 4}^n \tau_{pj} + \sum_{i = 1}^m \tau_{zi} \\
+                & & & & & = \tau_0 + \dfrac{\tau_{p3}}{2} + \left({\tau_{p4} + \tau_{p5} + \cdots + \tau_{pn}}\right) + \left({\tau_{z1} + \tau_{z2} + \cdots + \tau_{zm}}\right)
+                \end{align*}
+    \end{itemize}
+
+\subsection{Hàm truyền của bộ điều khiển PI và PID}
+    \begin{itemize}
+        \item Hàm truyền của bộ điều khiển PI cho khâu quán tính bậc nhất có dạng:
+            \begin{align*}
+                K(s) = K_P + \dfrac{K_I}{s} = K_P \left({1 + \dfrac{1}{T_I s}}\right)
+            \end{align*}
+
+        \item Hàm truyền của bộ điều khiển PID cho khâu quán tính bậc hai có dạng:
+            \begin{align*}
+                K(s) = K_P + \dfrac{K_I}{s} + K_D s = K_P \left({1 + \dfrac{1}{T_I s} + T_D s}\right)
+            \end{align*}
+    \end{itemize}
+
+\subsection{Phương pháp xác định các thông số của bộ điều khiển PI và PID dựa trên mô hình mẫu}
+\subsubsection{Phương pháp Haalman}
+    \begin{itemize}
+        \item Với khâu quán tính bậc nhất $\tilde{G}(s) = \dfrac{k e^{-\theta s}}{\tau s + 1}$ (mô hình FOPDT), sử dụng bộ điều khiển PI:
+            \begin{align*}
+                K(s) = K_P \left({1 + \dfrac{1}{T_I s}}\right) \quad \textrm{với} \quad K_P = \dfrac{2 \tau}{3 k \theta}; \quad T_I = \tau
+            \end{align*}
+
+        \item Với khâu quán tính bậc hai $\tilde{G}(s) = \dfrac{k e^{-\theta s}}{\left({\tau_1 s + 1}\right) \left({\tau_2 s + 1}\right)}$ (mô hình SOPDT), sử dụng bộ điều khiển PID:
+            \begin{align*}
+                K(s) = K_P \left({1 + \dfrac{1}{T_I s} + T_D s}\right) \quad \textrm{với} \quad K_P = \dfrac{2 \left({\tau_1 + \tau_2}\right)}{3 k \theta}; \quad T_I = \tau_1 + \tau_2; \quad T_D = \dfrac{\tau_1 \tau_2}{\tau_1 + \tau_2}
+            \end{align*}
+    \end{itemize}
+
+\subsubsection{Phương pháp tổng hợp trực tiếp (Direct Synthesis -- DS)}
+    \begin{itemize}
+        \item Với khâu quán tính bậc nhất $\tilde{G}(s) = \dfrac{k e^{-\theta s}}{\tau s + 1}$ (mô hình FOPDT), sử dụng bộ điều khiển PI:
+        \begin{align*}
+            K(s) = K_P \left({1 + \dfrac{1}{T_I s}}\right) \quad \textrm{với} \quad K_P = \dfrac{\tau}{k\left({\tau_c + \theta}\right)}; \quad T_I = \tau
+        \end{align*}
+
+        với $\tau_c$ là hằng số thời gian quán tính.
+
+        \item Với khâu quán tính bậc hai $\tilde{G}(s) = \dfrac{k e^{-\theta s}}{\left({\tau_1 s + 1}\right) \left({\tau_2 s + 1}\right)}$ (mô hình SOPDT), sử dụng bộ điều khiển PID:
+            \begin{align*}
+                K(s) = K_P \left({1 + \dfrac{1}{T_I s} + T_D s}\right) \quad \textrm{với} \quad K_P = \dfrac{\tau_1 + \tau_2}{k\left({\tau_c + \theta}\right)}; \quad T_I = \tau_1 + \tau_2; \quad T_D = \dfrac{\tau_1 \tau_2}{\tau_1 + \tau_2}
+            \end{align*}
+
+        với $\tau_c$ là hằng số thời gian quán tính.
+    \end{itemize}
+
+\subsubsection{Bảng tổng hợp xác định thông số của bộ điều khiển PI, PID theo phương pháp Haalman và phương pháp tổng hợp trực tiếp}
+    \begin{table}[htp]
+        \begin{center}
+            \begin{tabular}{llll}
+                \toprule
+                \multicolumn{2}{c}{Khâu quán tính bậc nhất (FOPDT)} & \multicolumn{2}{c}{Khâu quán tính bậc hai (SOPDT)} \\
+                \multicolumn{2}{c}{$\tilde{G}(s) = \dfrac{k e^{-\theta s}}{\tau s + 1}$} & \multicolumn{2}{c}{$\tilde{G}(s) = \dfrac{k e^{-\theta s}}{\left({\tau_1 s + 1}\right) \left({\tau_2 s + 1}\right)}$} \\
+                \multicolumn{2}{c}{$K_{PI}(s) = K_P \left({1 + \dfrac{1}{T_I s}}\right)$} & \multicolumn{2}{c}{$K_{PID}(s) = K_P \left({1 + \dfrac{1}{T_I s} + T_D s}\right)$} \\
+                \midrule
+                Phương pháp Haalman & Phương pháp DS & Phương pháp Haalman & Phương pháp DS \\
+                \midrule
+                $K_P = \dfrac{2 \tau}{3 k \theta}$ & $K_P = \dfrac{\tau}{k\left({\tau_c + \theta}\right)}$  & $K_P = \dfrac{2 \left({\tau_1 + \tau_2}\right)}{3 k \theta}$ & $K_P = \dfrac{\tau_1 + \tau_2}{k\left({\tau_c + \theta}\right)}$ \\
+                $T_I = \tau$ & $T_I = \tau$ & $T_I = \tau_1 + \tau_2$ & $T_I = \tau_1 + \tau_2$ \\
+                & & $T_D = \dfrac{\tau_1 \tau_2}{\tau_1 + \tau_2}$ & $T_D = \dfrac{\tau_1 \tau_2}{\tau_1 + \tau_2}$ \\
+                \bottomrule
+            \end{tabular}
+        \end{center}
+        \caption{Xác định các thông số của bộ điều khiển PI, PID theo phương pháp Haalman và phương pháp tổng hợp trực tiếp}
+    \end{table}

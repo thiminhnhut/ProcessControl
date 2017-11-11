@@ -1,0 +1,52 @@
+\documentclass[border=12pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{tikz}
+\usepackage{flowchart}
+\usetikzlibrary{arrows,decorations.markings,calc,fadings,decorations.pathreplacing,patterns,decorations.pathmorphing,positioning}
+
+\begin{document}
+    \begin{tikzpicture}[>=latex',font={\small}]
+        \def\smbwd{2cm}
+        \coordinate (r) at (-2.5, 0);
+
+        \node (P) at (0, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$P$};
+        \node (sum_1) at (2, 0) [circle, draw] {};
+        \coordinate (node_sum1) at (2, -2);
+        \node (K) at (4, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$K$};
+        \node (G) at (8, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$G$};
+        \node (sum_2) at (10, 0) [circle, draw] {};
+        \coordinate (y) at (13, 0);
+
+        \node (Gd) at (10, 2) [draw, process, minimum width=\smbwd, minimum height=1cm] {$G_d$};
+        \coordinate (d) at (10, 3.5);
+
+        \node (sum_3) at (11, -2) [circle, draw] {};
+        \coordinate (node_sum_3) at (11, 0);
+        \coordinate (n) at (12, -2);
+
+        \draw[->] (r) -- node[above,pos=0.1]{$r$} (P);
+        \draw[->] (P) -- (sum_1);
+        \draw[->] (sum_1) -- (K);
+        \draw[->] (K) -- node[above,pos=0.4]{$u$} (G);
+        \draw[->] (G) -- (sum_2);
+        \draw[->] (sum_2) -- node[above,pos=0.9]{$y$} (y);
+
+        \draw[->] (d) node[right]{$d$} -- (Gd);
+        \draw[->] (Gd) -- node[right,pos=0.9]{$+$} (sum_2);
+
+        \draw[->] (node_sum_3) -- node[left,pos=0.9]{$+$} (sum_3);
+        \draw[->] (n) node[above]{$n$} -- node[above,pos=0.9]{$+$} (sum_3);
+
+        \draw[->] (sum_3) -- node[above,pos=0.95]{$y_m$} (node_sum1) -- node[right,pos=0.9]{$-$} (sum_1);
+
+        \draw[dashed] (-1.5, 2) rectangle (5.5, -1);
+        \node at (2, 1.25) {Bộ điều khiển};
+
+        \draw[dashed] (6.25, 3) rectangle (12, -1);
+        \node at (7.5, 2.5) {Quá trình KT};
+
+    \end{tikzpicture}
+
+\end{document}

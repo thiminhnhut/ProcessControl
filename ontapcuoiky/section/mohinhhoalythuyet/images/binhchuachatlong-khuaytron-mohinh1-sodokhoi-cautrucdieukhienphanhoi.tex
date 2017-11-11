@@ -1,0 +1,154 @@
+\documentclass[border=12pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{tikz}
+\usepackage{flowchart}
+\usetikzlibrary{arrows,decorations.markings,calc,fadings,decorations.pathreplacing,patterns,decorations.pathmorphing,positioning}
+
+\begin{document}
+    \begin{tikzpicture}[>=latex',font={\small}]
+        \def\smbwd{2cm}
+
+        \coordinate (h_SP) at (-15.5, 0);
+        \node (C_h) at (-13, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$C_h$};
+        \node (sum_K_h) at (-10.5, 0) [circle, draw] {};
+        \node (K_h) at (-8.5, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$K_h$};
+
+        \coordinate (w1_x) at (-2.5, 0);
+        \node (G_v_w1) at (-5.25, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{v_{w1}}}{\tau_{v_{w1}}s + 1}$};
+        \node (w1_trongphuontrinh_h) at (0, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{wh}}{s}$};
+        \node (w1_trongphuontrinh_x) at (0, -2) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{w1x}}{\tau s + 1}$};
+
+        \coordinate (w2_x) at (-2.5, -4);
+        \coordinate (x_SP) at (-15.5, -4);
+        \node (C_x) at (-13, -4) [draw, process, minimum width=\smbwd, minimum height=1cm] {$C_x$};
+        \node (sum_K_x) at (-10.5, -4) [circle, draw] {};
+        \node (K_x) at (-8.5, -4) [draw, process, minimum width=\smbwd, minimum height=1cm] {$K_x$};
+        \node (G_v_w2) at (-5.25, -4) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{v_{w2}}}{\tau_{v_{w2}}s + 1}$};
+        \node (w2_trongphuontrinh_h) at (0, -4) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{wh}}{s}$};
+        \node (w2_trongphuontrinh_x) at (0, -6) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{w2x}}{\tau s + 1}$};
+
+        \coordinate (w_h) at (3, 4.8);
+        \node (w_trongphuontrinh_h) at (3, 3.5) [draw, process, minimum width=\smbwd, minimum height=1cm] {$-\dfrac{k_{wh}}{s}$};
+
+        \coordinate (x1_x) at (6, 4.8);
+        \node (x1_trongphuontrinh_x) at (6, 3.5) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{x1x}}{\tau s + 1}$};
+
+        \coordinate (x2_x) at (9, 4.8);
+        \node (x2_trongphuontrinh_x) at (9, 3.5) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{x2x}}{\tau s + 1}$};
+
+        \coordinate (node_Gm_h) at (10, 0);
+        \coordinate (arc5) at (10, -1.85);
+        \draw (10,-1.85) arc (90:-90:.15);
+        \coordinate (arc6) at (10, -2.15);
+        \node (Gm_h) at (8.5, -3) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{m_h}}{\tau_{m_h} s + 1}$};
+        \node (sum_Gm_h) at (6.5, -3) [circle, draw] {};
+
+        \coordinate (node_Gm_x) at (11, -2);
+        \node (Gm_x) at (8.5, -7.5) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{m_x}}{\tau_{m_x} s + 1}$};
+        \node (sum_Gm_x) at (6.5, -7.5) [circle, draw] {};
+
+        \coordinate (Gp) at (-2, .25);
+        \coordinate (Gd) at (1.5, 4.5);
+        \coordinate (y) at (12, -1);
+        \coordinate (d) at (10.5, 4.5);
+        \node (sum_h) at (3, 0) [circle, draw] {}; \coordinate (label_h) at (12, 0);
+        \node (sum_Gd_x) at (6, 2) [circle, draw] {};
+        \node (sum_x) at (6, -2) [circle, draw] {}; \coordinate (label_x) at (12, -2);
+        \coordinate (n_h) at (6.5, -4);
+        \coordinate (n_x) at (6.5, -8.5);
+
+        \coordinate (arc1) at (6, .15);
+        \draw (6,.15) arc (90:-90:.15);
+        \coordinate (arc2) at (6, -.15);
+
+        \coordinate (arc3) at (3, -1.85);
+        \draw (3, -1.85) arc (90:-90:.15);
+        \coordinate (arc4) at (3, -2.15);
+
+        \coordinate (arc7) at (6, -2.85);
+        \draw (6, -2.85) arc (90:-90:.15);
+        \coordinate (arc8) at (6, -3.15);
+
+        \coordinate (arc9) at (3, -2.85);
+        \draw (3, -2.85) arc (90:-90:.15);
+        \coordinate (arc10) at (3, -3.15);
+
+        \draw[->] (h_SP) -- node[above, pos=0.2]{$\Delta h_{SP}$} (C_h);
+        \draw[->] (h_SP) -- node[below, pos=0.2]{$[m]$} (C_h);
+        \draw[->] (C_h) -- node[above]{$\vec{r}$} (sum_K_h);
+        \draw[->] (C_h) -- node[below]{$[mA]$} (sum_K_h);
+        \draw[->] (sum_K_h) -- (K_h);
+        \draw[->] (K_h) -- node[above]{$\vec{u}$} (G_v_w1);
+        \draw[->] (K_h) -- node[below]{$[mA]$} (G_v_w1);
+
+        \draw[->] (x_SP) -- node[above, pos=0.2]{$\Delta x_{SP}$} (C_x);
+        \draw[->] (C_x) -- node[above]{$\vec{r}$} (sum_K_x);
+        \draw[->] (C_x) -- node[below]{$[mA]$} (sum_K_x);
+        \draw[->] (sum_K_x) -- (K_x);
+        \draw[->] (K_x) -- node[above]{$\vec{u}$} (G_v_w2);
+        \draw[->] (K_x) -- node[below]{$[mA]$} (G_v_w2);
+
+        \draw[->] (G_v_w1) -- node[above,pos=0.2]{$\Delta w_1$} (w1_trongphuontrinh_h);
+        \draw[->] (G_v_w1) -- node[below,pos=0.2]{$[kg/s]$} (w1_trongphuontrinh_h);
+        \draw[->] (w1_trongphuontrinh_h) -- node[above,pos=0.9]{$+$} (sum_h);
+        \draw[->] (w1_x) |- (w1_trongphuontrinh_x);
+
+        \draw[->] (G_v_w2) -- node[above,pos=0.2]{$\Delta w_2$} (w2_trongphuontrinh_h);
+        \draw[->] (G_v_w2) -- node[below,pos=0.2]{$[kg/s]$} (w2_trongphuontrinh_h);
+        \draw (w2_trongphuontrinh_h) -| (arc10);
+        \draw (arc9) -- (arc4);
+        \draw[->] (arc3) -- node[right,pos=0.97]{$+$} (sum_h);
+        \draw[->] (w2_x) |- (w2_trongphuontrinh_x);
+
+        \draw[->] (w_h) -- node[left,pos=0.1]{$\Delta w$} (w_trongphuontrinh_h);
+        \draw[->] (w_trongphuontrinh_h) -- node[right,pos=0.9]{$+$} (sum_h);
+
+        \draw[->] (x1_x) -- node[left,pos=0.1]{$\Delta x_1$} (x1_trongphuontrinh_x);
+        \draw[->] (x1_trongphuontrinh_x) -- node[left,pos=0.9]{$+$} (sum_Gd_x);
+
+        \draw[->] (x2_x) -- node[left,pos=0.1]{$\Delta x_2$} (x2_trongphuontrinh_x);
+        \draw[->] (x2_trongphuontrinh_x) |- node[above,pos=0.97]{$+$} (sum_Gd_x);
+
+        \draw (w2_trongphuontrinh_x) -| (arc8);
+        \draw[->] (arc7) -- node[right,pos=0.97]{$+$} (sum_x);
+        \draw (sum_Gd_x) -- (arc1);
+        \draw[->] (arc2) -- node[right,pos=0.97]{$+$} (sum_x);
+        \draw[->] (w1_trongphuontrinh_x) -- node[above,pos=0.97]{$+$} (sum_x);
+
+        \draw[->] (sum_h) -- node[above,pos=0.95]{$\Delta h$} (label_h);
+        \draw[->] (sum_h) -- node[below,pos=0.95]{$[m]$} (label_h);
+        \draw[->] (sum_x) -- node[above,pos=0.95]{$\Delta x$} (label_x);
+        \draw (Gp) -- node[above,pos=0.95]{$G_p$} (Gp);
+        \draw (Gd) -- node[above,pos=0.95]{$G_d$} (Gd);
+        \draw (y) -- node[above,pos=0.95]{$y$} (y);
+        \draw (d) -- node[above,pos=0.95]{$d$} (d);
+
+        \draw (node_Gm_h) -- (arc5);
+        \draw[->] (arc6) |- (Gm_h);
+        \draw[->] (Gm_h) -- node[above]{$\vec{y}_h$} (sum_Gm_h);
+        \draw[->] (n_h) node[right]{$n_h$} -- node[right,pos=0.9]{$+$} (sum_Gm_h);
+        \draw[->] (sum_Gm_h) -| node[above,pos=0.3]{$\vec{y}_{m_h}$} (sum_K_h);
+        \draw[->] (sum_Gm_h) -| node[right,pos=0.99]{$+$} (sum_K_h);
+
+        \draw[->] (node_Gm_x) |- (Gm_x);
+        \draw[->] (Gm_x) -- (sum_Gm_x);
+        \draw[->] (n_x) node[right]{$n_x$} -- node[right,pos=0.9]{$+$} (sum_Gm_x);
+        \draw[->] (sum_Gm_x) -| (sum_K_x);
+        \draw[->] (sum_Gm_x) -| node[above,pos=0.3]{$\vec{y}_{m_x}$} (sum_K_x);
+        \draw[->] (sum_Gm_x) -| node[right,pos=0.99]{$+$} (sum_K_x);
+
+        \draw[dashed] (-3, 1) rectangle (2, -7);
+        \draw[dashed] (0.5, 1.5) rectangle (11, 5.5);
+
+        \node at (-5.25, 1) {Van};
+        \node at (-5.25, -5) {Van};
+
+        \draw[dashed] (-14.5, 1.5) rectangle (-7.35, -1);
+        \node at (-12.5, 1.25) {Bộ điều khiển mức};
+        \draw[dashed] (-14.5, -3.25) rectangle (-7.35, -5.5);
+        \node at (-12.5, -5.25) {Bộ điều khiển thành phần};
+    \end{tikzpicture}
+
+\end{document}

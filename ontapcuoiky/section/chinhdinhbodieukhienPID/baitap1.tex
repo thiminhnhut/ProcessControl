@@ -1,0 +1,116 @@
+\begin{exercise}
+    Cho một thiết bị trao đổi nhiệt với hàm truyền từ tín hiệu điều khiển van dòng mang nhiệt và tín hiệu đo nhiệt độ ra của dòng quá trình là:
+        \begin{align*}
+            G(s) = \dfrac{0.75e^{-1.21s}}{(30s + 1)(5s + 1)(2s+1)}
+        \end{align*}
+    \begin{enumerate}
+        \item Xấp xỉ hàm truyền theo quy tắc Skogestad:
+            \begin{enumerate}
+                \item Xấp xỉ hàm truyền $G(s)$ về dạng bậc nhất có trễ sử dụng quy tắc Skogestad.
+                \item Xấp xỉ hàm truyền $G(s)$ về dạng bậc hai có trễ sử dụng quy tắc Skogestad.
+            \end{enumerate}
+
+        \item Thiết kế bộ điều khiển sử dụng phương pháp Haalman:
+            \begin{enumerate}
+                \item Thiết kế bộ điều khiển PI sử dụng phương pháp Haalman.
+                \item Thiết kế bộ điều khiển PID sử dụng phương pháp Haalman.
+            \end{enumerate}
+
+        \item Thiết kế bộ điều khiển sử dụng phương pháp tổng hợp trực tiếp Direct Synthesis -- DS:
+            \begin{enumerate}
+                \item Thiết kế bộ điều khiển PI sử dụng phương pháp tổng hợp trực tiếp Direct Synthesis, biết hằng số thời gian của hệ kín là $\tau_c = 3.17$.
+
+                \item Thiết kế bộ điều khiển PID sử dụng phương pháp tổng hợp trực tiếp Direct Synthesis, biết hằng số thời gian của hệ kín là $\tau_c = 3.17$.
+            \end{enumerate}
+    \end{enumerate}
+\end{exercise}
+
+\begin{solution}
+    Ta có hàm truyền $G(s) = \dfrac{0.75e^{-1.21s}}{(30s + 1)(5s + 1)(2s+1)}$, nên:
+        \begin{align*}
+            k = 0.75; \quad \tau_{p1} = 30; \tau_{p2} = 5; \tau_{p3} = 2; \quad \tau_{0} = 1.21
+        \end{align*}
+    \begin{enumerate}
+        \item \textbf{Xấp xỉ hàm truyền theo quy tắc Skogestad:}
+            \begin{enumerate}
+                \item Xấp xỉ hàm truyền $G(s)$ về dạng bậc nhất có trễ sử dụng quy tắc Skogestad.
+                    \begin{align*}
+                        & \left\{\begin{array}{l}
+                            \tau = \tau_{p1} + \dfrac{\tau_{p2}}{2} = 30 + \dfrac{5}{2} = 32.5 \\
+                            \theta = \tau_0 + \left({\dfrac{\tau_{p2}}{2} + \tau_{p3}}\right) + 0= 1.21 + \left({\dfrac{5}{2} + 2}\right) + 0 = 5.71
+                        \end{array}\right. \\
+                        \Longrightarrow &
+                        \tilde{G}(s) = \dfrac{k e^{-\theta s}}{\tau s + 1} = \dfrac{0.75e^{-5.71s}}{32.5s + 1}
+                    \end{align*}
+                \item Xấp xỉ hàm truyền $G(s)$ về dạng bậc hai có trễ sử dụng quy tắc Skogestad.
+                    \begin{align*}
+                        & \left\{\begin{array}{l}
+                            \tau_1 = \tau_{p1} = 30\\
+                            \tau_2 = \tau_{p2} + \dfrac{\tau_{p3}}{2} = 5 + \dfrac{2}{2} = 6 \\
+                            \theta = \tau_0 + \dfrac{\tau_{p3}}{2} + 0 = 1.21 + \dfrac{2}{2} + 0 = 2.21
+                        \end{array}\right. \\
+                        \Longrightarrow &
+                        \tilde{G}(s) = \dfrac{k e^{-\theta s}}{\left({\tau_1 s + 1}\right) \left({\tau_2 s + 1}\right)} = \dfrac{0.75 e^{-2.21s}}{\left({30s + 1}\right) \left({6s + 1}\right)}
+                    \end{align*}
+            \end{enumerate}
+
+        \item \textbf{Thiết kế bộ điều khiển sử dụng phương pháp Haalman:}
+            \begin{enumerate}
+                \item Thiết kế bộ điều khiển PI sử dụng phương pháp Haalman.
+                    \begin{itemize}
+                        \item Ta có: $\tilde{G}(s) = \dfrac{0.75e^{-5.71s}}{32.5s + 1}$, suy ra: $k = 0.75; \theta = 5.71; \tau = 32.5$
+                        \item Tính giá trị các thông số $K_P$ và $K_I$:
+                            \begin{align*}
+                                \left\{\begin{array}{l}
+                                    K_P = \dfrac{2 \tau}{3 k \theta} = \dfrac{2 \times 32.5}{3 \times 0.75 \times 5.71} = 5.06\\
+                                    T_I = \tau = 32.5
+                                \end{array}\right.
+                            \end{align*}
+                        \item Kết luận: $K(s) = K_P \left({1 + \dfrac{1}{T_I s}}\right) = 5.06 \left({1 + \dfrac{1}{32.5 s}}\right)$
+                    \end{itemize}
+                \item Thiết kế bộ điều khiển PID sử dụng phương pháp Haalman.
+                    \begin{itemize}
+                        \item Ta có: $\tilde{G}(s) = \dfrac{0.75 e^{-2.21 s}}{\left({30s + 1}\right) \left({6s + 1}\right)}$, suy ra: $k = 0.75; \theta = 2.21; \tau_1 = 30; \tau_2 = 6$
+                        \item Tính giá trị các thông số $K_P$ và $K_I$:
+                            \begin{align*}
+                                \left\{\begin{array}{l}
+                                    K_P = \dfrac{2 \left({\tau_1 + \tau_2}\right)}{3 k \theta} = \dfrac{2 \left({30 + 6}\right)}{3 \times 0.75 \times 2.21} = 14.48 \\
+                                    T_I = \tau_1 + \tau_2 = 30 + 6 = 36 \\
+                                    T_D = \dfrac{\tau_1 \tau_2}{\tau_1 + \tau_2} = \dfrac{30 \times 6}{30 + 6} = 5
+                                \end{array}\right.
+                            \end{align*}
+                        \item Kết luận: $K(s) = K_P \left({1 + \dfrac{1}{T_I s} + T_D s}\right) = 14.48 \left({1 + \dfrac{1}{36s} + 5s}\right)$
+                    \end{itemize}
+            \end{enumerate}
+
+        \item \textbf{Thiết kế bộ điều khiển sử dụng phương pháp tổng hợp trực tiếp Direct Synthesis -- DS:}
+        \begin{enumerate}
+            \item Thiết kế bộ điều khiển PI sử dụng phương pháp tổng hợp trực tiếp Direct Synthesis, biết hằng số thời gian của hệ kín là $\tau_c = 3.17$.
+                \begin{itemize}
+                    \item Ta có: $\tilde{G}(s) = \dfrac{0.75e^{-5.71s}}{32.5s + 1}$, suy ra: $k = 0.75; \theta = 5.71; \tau = 32.5$
+                    \item Tính giá trị các thông số $K_P$, $K_I$ và $T_D$:
+                        \begin{align*}
+                            \left\{\begin{array}{l}
+                                K_P = \dfrac{\tau}{k\left({\tau_c + \theta}\right)} = \dfrac{32.5}{0.75 \times \left({3.17 + 5.71}\right)} = 4.88\\
+                                T_I = \tau = 32.5
+                            \end{array}\right.
+                        \end{align*}
+                    \item Kết luận: $K(s) = K_P \left({1 + \dfrac{1}{T_I s}}\right) = 4.88 \left({1 + \dfrac{1}{32.5 s}}\right)$
+                \end{itemize}
+
+            \item Thiết kế bộ điều khiển PID sử dụng phương pháp tổng hợp trực tiếp Direct Synthesis, biết hằng số thời gian của hệ kín là $\tau_c = 3.17$.
+                \begin{itemize}
+                    \item Ta có: $\tilde{G}(s) = \dfrac{0.75 e^{-2.21 s}}{\left({30s + 1}\right) \left({6s + 1}\right)}$, suy ra: $k = 0.75; \theta = 2.21; \tau_1 = 30; \tau_2 = 6$
+                    \item Tính giá trị các thông số $K_P$, $K_I$ và $T_D$:
+                        \begin{align*}
+                            \left\{\begin{array}{l}
+                                K_P = \dfrac{\tau_1 + \tau_2}{k\left({\tau_c + \theta}\right)} = \dfrac{30 + 6}{0.75 \times \left({3.17 + 2.21}\right)} = 8.92\\
+                                T_I = \tau_1 + \tau_2 = 30 + 6 = 36\\
+                                T_D = \dfrac{\tau_1 \tau_2}{\tau_1 + \tau_2} = \dfrac{30 \times 6}{30 + 6} = 5
+                            \end{array}\right.
+                        \end{align*}
+                    \item Kết luận: $K(s) = K_P \left({1 + \dfrac{1}{T_I s} + T_D s}\right) = 8.92 \left({1 + \dfrac{1}{36s} + 5s}\right)$
+                \end{itemize}
+        \end{enumerate}
+    \end{enumerate}
+\end{solution}

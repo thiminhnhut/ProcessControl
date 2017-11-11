@@ -1,0 +1,84 @@
+\documentclass[border=12pt]{standalone}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{tikz}
+\usepackage{flowchart}
+\usetikzlibrary{arrows,decorations.markings,calc,fadings,decorations.pathreplacing,patterns,decorations.pathmorphing,positioning}
+
+\begin{document}
+    \begin{tikzpicture}[>=latex',font={\small}]
+        \def\smbwd{2cm}
+        \coordinate (w1_h) at (-4, 0);
+        \coordinate (w1_x) at (-2.5, 0);
+        \node (w1_trongphuontrinh_h) at (0, 0) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{wh}}{s}$};
+        \node (w1_trongphuontrinh_x) at (0, -2) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{w1x}}{\tau s + 1}$};
+
+        \coordinate (w2_h) at (-4, -4);
+        \coordinate (w2_x) at (-2.5, -4);
+        \node (w2_trongphuontrinh_h) at (0, -4) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{wh}}{s}$};
+        \node (w2_trongphuontrinh_x) at (0, -6) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{w2x}}{\tau s + 1}$};
+
+        \coordinate (w_h) at (3, 4.8);
+        \node (w_trongphuontrinh_h) at (3, 3.5) [draw, process, minimum width=\smbwd, minimum height=1cm] {$-\dfrac{k_{wh}}{s}$};
+
+        \coordinate (x1_x) at (6, 4.8);
+        \node (x1_trongphuontrinh_x) at (6, 3.5) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{x1x}}{\tau s + 1}$};
+
+        \coordinate (x2_x) at (9, 4.8);
+        \node (x2_trongphuontrinh_x) at (9, 3.5) [draw, process, minimum width=\smbwd, minimum height=1cm] {$\dfrac{k_{x2x}}{\tau s + 1}$};
+
+        \coordinate (Gp) at (-2, .25);
+        \coordinate (Gd) at (1.5, 4.5);
+        \coordinate (u) at (-4, -2);
+        \coordinate (y) at (12, -1);
+        \coordinate (d) at (10.5, 4.5);
+        \node (sum_h) at (3, 0) [circle, draw] {}; \coordinate (label_h) at (12, 0);
+        \node (sum_Gd_x) at (6, 2) [circle, draw] {};
+        \node (sum_x) at (6, -2) [circle, draw] {}; \coordinate (label_x) at (12, -2);
+
+        \coordinate (arc1) at (6, .15);
+        \draw (6,.15) arc (90:-90:.15);
+        \coordinate (arc2) at (6, -.15);
+
+        \coordinate (arc3) at (3, -1.85);
+        \draw (3, -1.85) arc (90:-90:.15);
+        \coordinate (arc4) at (3, -2.15);
+
+
+        \draw[->] (w1_h) -- node[above,pos=0.1]{$\Delta w_1$} (w1_trongphuontrinh_h);
+        \draw[->] (w1_trongphuontrinh_h) -- node[above,pos=0.9]{$+$} (sum_h);
+        \draw[->] (w1_x) |- (w1_trongphuontrinh_x);
+
+        \draw[->] (w2_h) -- node[above,pos=0.1]{$\Delta w_2$} (w2_trongphuontrinh_h);
+        \draw (w2_trongphuontrinh_h) -| (arc4);
+        \draw[->] (arc3) -- node[right,pos=0.97]{$+$} (sum_h);
+        \draw[->] (w2_x) |- (w2_trongphuontrinh_x);
+
+        \draw[->] (w_h) -- node[left,pos=0.1]{$\Delta w$} (w_trongphuontrinh_h);
+        \draw[->] (w_trongphuontrinh_h) -- node[right,pos=0.9]{$+$} (sum_h);
+
+        \draw[->] (x1_x) -- node[left,pos=0.1]{$\Delta x_1$} (x1_trongphuontrinh_x);
+        \draw[->] (x1_trongphuontrinh_x) -- node[left,pos=0.9]{$+$} (sum_Gd_x);
+
+        \draw[->] (x2_x) -- node[left,pos=0.1]{$\Delta x_2$} (x2_trongphuontrinh_x);
+        \draw[->] (x2_trongphuontrinh_x) |- node[above,pos=0.97]{$+$} (sum_Gd_x);
+
+        \draw[->] (w2_trongphuontrinh_x) -| node[right,pos=0.97]{$+$} (sum_x);
+        \draw (sum_Gd_x) -- (arc1);
+        \draw[->] (arc2) -- node[right,pos=0.97]{$+$} (sum_x);
+        \draw[->] (w1_trongphuontrinh_x) -- node[above,pos=0.97]{$+$} (sum_x);
+
+        \draw[->] (sum_h) -- node[above,pos=0.95]{$\Delta h$} (label_h);
+        \draw[->] (sum_x) -- node[above,pos=0.95]{$\Delta x$} (label_x);
+        \draw (Gp) -- node[above,pos=0.95]{$G_p$} (Gp);
+        \draw (Gd) -- node[above,pos=0.95]{$G_d$} (Gd);
+        \draw (u) -- node[above,pos=0.95]{$u$} (u);
+        \draw (y) -- node[above,pos=0.95]{$y$} (y);
+        \draw (d) -- node[above,pos=0.95]{$d$} (d);
+
+        \draw[dashed] (-3, 1) rectangle (2, -7);
+        \draw[dashed] (0.5, 1.5) rectangle (11, 5.5);
+    \end{tikzpicture}
+
+\end{document}

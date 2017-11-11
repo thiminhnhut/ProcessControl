@@ -1,0 +1,69 @@
+\subparagraph{Điều khiển phản hồi} Dựa trên nguyên lý đo liên tục giá trị của biến được điều khiển và phản hồi thông tin về bộ điều khiển để tính toán lại giá trị biến điều khiển.
+
+\subsection{Cấu hình chuẩn của hệ thống điều khiển phản hồi}
+    \begin{figure}[htp]
+        \begin{center}
+            \subimport{section/phantichhethong-dieukhienphanhoi/images/}{cauhinhchuan-dieukhienphanhoi.tex}
+        \end{center}
+        \caption{Cấu hình chuẩn của điều khiển phản hồi} \label{Fig:cauhinhchuan-dieukhienphanhoi}
+    \end{figure}
+
+    Giải thích các ký hiệu trên \fig{\ref{Fig:cauhinhchuan-dieukhienphanhoi}}:
+        \begin{multicols}{2}
+            \begin{itemize}
+                \item $r$: tín hiệu đặt, giá trị đặt.
+                \item $u$: tín hiệu điều khiển.
+                \item $y$: tín hiệu ra được điều khiển.
+                \item $y_m$: tín hiệu đo, tín hiệu phản hồi.
+                \item $d$: nhiễu quá trình (không đo được).
+                \item $n$: nhiễu đo.
+            \end{itemize}
+
+            \columnbreak
+
+            \begin{itemize}
+                \item $G$: mô hình đối tượng.
+                \item $G_d$: mô hình nhiễu.
+                \item $K$: khâu điều chỉnh.
+                \item $P$: khâu lọc trước.
+                \item[]
+                \item[]
+            \end{itemize}
+        \end{multicols}
+
+\subsection{Lưu đồ P\&ID đối với hệ thống điều khiển phản hồi}
+    Cần thể hiện các thành phần bên dưới:
+        \begin{itemize}
+            \item Đường tín hiệu và dạng tín hiệu điều khiển.
+            \item Thiết bị đo. Ví dụ:
+                \begin{itemize}
+                    \item Thiết bị chuyển đổi mức LT (level transmitter).
+                    \item Thiết bị phân tích thành phần AT (Analysis).
+                \end{itemize}
+            \item Bộ điều khiển. Ví dụ:
+                \begin{itemize}
+                    \item Bộ điều khiển mức LC (Level Controller).
+                    \item Bộ điều khiển thành phần AC (Analysis Controller).
+                \end{itemize}
+            \item Giá trị đặt của biến được điều khiển.
+        \end{itemize}
+
+\subsection{Sơ đồ khối và mô hình hàm truyền đạt}
+    \subparagraph{Sơ đồ khối} Từ cấu hình của điều khiển phản hồi trên \fig{\ref{Fig:cauhinhchuan-dieukhienphanhoi}}, ta được sơ đồ như \fig{\ref{Fig:sodokhoi-dieukhienphanhoi}}.
+        \begin{figure}[htp]
+            \begin{center}
+                \subimport{section/phantichhethong-dieukhienphanhoi/images/}{sodokhoi-dieukhienphanhoi.tex}
+            \end{center}
+            \caption{Sơ đồ khối của điều khiển phản hồi} \label{Fig:sodokhoi-dieukhienphanhoi}
+        \end{figure}
+
+    \subparagraph{Mô hình hàm truyền đạt}
+        \begin{itemize}
+            \item Khâu tạo tín hiệu đặt $C$: thường chọn bằng $k_m$ hoặc $\tilde{G_m}(s)$.
+            \item Khâu điều chỉnh chỉnh $K$: là hàm truyền của bộ điều khiển $P$, $PI$, $PID$.
+            \item Mô hình hàm truyền của van điều khiển: $\tilde{G_v}(s) = \dfrac{k_v}{\tau_v s + 1}$.
+            \item Mô hình của thiết bị đo: $\tilde{G_m}(s) = \dfrac{k_m}{\tau_m s + 1}$.
+            \item Mô hình hàm truyền của các biến điều khiển trong quá trình $G_p$: dựa vào hàm truyền xác định được từ phương trình động học.
+            \item Mô hình hàm truyền của các biến nhiễu trong quá trình $G_d$: dựa vào hàm truyền xác định được từ phương trình động học.
+            \item Các ký hiệu: $SP$ -- giá trị đặt, $MV$ -- biến điều khiển, $CV$ -- biến cần điều khiển
+        \end{itemize}

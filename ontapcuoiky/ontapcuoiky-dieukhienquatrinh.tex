@@ -1,0 +1,58 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{vietnam}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{pdflscape}
+\usepackage{rotating}
+\usepackage{xfrac}
+\usepackage{booktabs}
+\usepackage{indentfirst}
+\usepackage[unicode,hidelinks=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{enumerate}
+\usepackage{multicol}
+\usepackage[left=1.5cm,right=2cm,top=1.5cm,bottom=2cm]{geometry}
+\graphicspath{{images/}}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{import}
+\usepackage[labelfont={bf}, textfont={it}, skip=0pt]{caption}
+\setlength{\belowcaptionskip}{-10pt}
+
+\everymath{\displaystyle}
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\baselinestretch}{1.2}
+
+\newcounter{exercise}[section]
+\newenvironment{exercise}[1][]
+    {\refstepcounter{exercise} \textbf{Bài tập~\thesection.\theexercise~}\rmfamily}{}
+
+\newcounter{solution}[section]
+\newenvironment{solution}[1][]
+        {\refstepcounter{solution} \textbf{Bài giải~\thesection.\theexercise~}\rmfamily\\\par}{}
+
+\newcommand{\fig}[1]{\textbf{Hình~#1}}
+\newcommand{\pfm}[1]{\left({#1}\right)}
+\newcommand{\pfs}[1]{\left[{#1}\right]}
+\newcommand{\unit}[1]{~#1}
+
+\title{\textbf{Bài tập Điều khiển quá trình \bigskip \\ Ôn tập thi cuối kỳ}}
+% \author{Thực hiện: Thi Minh Nhựt \and Email: thiminhnhut@gmail.com}
+\author{Thực hiện: \href{thiminhnhut@gmail.com}{Thi Minh Nhựt} -- Lê Thị Thu Ngân}
+\date{Thời gian: \today}
+
+\begin{document}
+
+    \maketitle
+
+    \tableofcontents
+
+    \include{section/phantichhethong-dieukhienphanhoi/phantichhethong-dieukhienphanhoi}
+
+    \include{section/chinhdinhbodieukhienPID/chinhdinhbodieukhienPID}
+
+    \include{section/mohinhhoalythuyet/mohinhhoalythuyet}
+
+\end{document}
